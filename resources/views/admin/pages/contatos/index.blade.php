@@ -35,8 +35,8 @@
                                     <thead>
                                         <tr>
                                             <th>Nome</th>
-                                            <th>Assunto</th>
                                             <th>Telefone</th>
+                                            <th>Assunto</th>
                                             <th>Mensagem</th>
                                             {{-- <th style="width: 40px">#</th> --}}
                                         </tr>
@@ -45,8 +45,8 @@
                                         @foreach ($data as $item)
                                             <tr>
                                                 <td>{{ $item->name }}</td>
-                                                <td>{{ $item->assunto }}</td>
                                                 <td>{{ $item->fone }}</td>
+                                                <td>{{ $item->assunto }}</td>
                                                 <td>{{ $item->msg }}</td>
                                                 {{-- <td>
                                                     <a href="">Editar</a>
