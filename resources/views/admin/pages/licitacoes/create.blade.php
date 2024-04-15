@@ -51,22 +51,19 @@
                                                 </div>
                                             </div>
                                         @endif
-
                                     </div>
                                     <div class="col-md-12">
 
                                         <div class="box box-info">
-
-
-                                            <form action="{{ route('admin.noticias.store') }}" class="form-horizontal"
+                                            <form action="{{ route('admin.licitacoes.store') }}" class="form-horizontal"
                                                 method="POST" enctype="multipart/form-data">
                                                 @csrf
                                                 <div class="box-body">
                                                     <div class="form-group">
-                                                        <label for="exampleInputFile">Imagem</label>
+                                                        <label for="exampleInputFile">Arquivo</label>
                                                         <div class="input-group">
                                                             <div class="custom-file">
-                                                                <input type="file" name="image"
+                                                                <input type="file" name="file"
                                                                     class="custom-file-input" id="exampleInputFile">
                                                                 <label class="custom-file-label"
                                                                     for="exampleInputFile">Choose file</label>
@@ -81,19 +78,6 @@
                                                         <input type="text" name="title" class="form-control"
                                                             placeholder="">
                                                     </div>
-                                                    <div class="form-group">
-                                                        <label>Descrição</label>
-                                                        <input type="text" class="form-control" name="desc"
-                                                            id="">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="customFile">Conteúdo</label>
-                                                        <div class="mb-3">
-                                                            <textarea class="textarea h" name="content" placeholder="Place some text here"
-                                                                style="width: 100%; font-size: 14px; line-height: 18px; border: 1px solid rgb(221, 221, 221); padding: 10px; display: none;"></textarea>
-                                                        </div>
-                                                    </div>
-
                                                 </div>
                                                 <div class="box-footer">
                                                     <button type="submit" class="btn btn-default">Cadastrar</button>

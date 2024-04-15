@@ -20,20 +20,26 @@ Route::get('download/', [HomeController::class, 'download'])->name('home.pages.d
 
 
 Route::get('/dashboard', function () {
-    return view('admin.pages.noticias.index');
+    $data = Noticia::latest()->get();
+    return view('admin.pages.noticias.index', compact('data'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/admin/noticias', [NoticiaController::class, 'index'])->name('admin.noticias.index');
     //licitacoes e contratos
     Route::get('/admin/licitacoes', [LicitacoeController::class, 'index'])->name('admin.licitacoes.index');
-
+    Route::get('/admin/licitacoes/create', [LicitacoeController::class, 'create'])->name('admin.licitacoes.create');
+    Route::post('/admin/licitacoes/store', [LicitacoeController::class, 'store'])->name('admin.licitacoes.store');
+    Route::delete('admin/licitacoes/delete/{id}', [LicitacoeController::class, 'destroy'])->name('admin.licitacoes.destroy');
+  
     //noticias
     Route::get('/admin/noticias', [NoticiaController::class, 'index'])->name('admin.noticias.index');
     Route::get('/admin/noticias/create', [NoticiaController::class, 'create'])->name('admin.noticias.create');
-
+    Route::post('/admin/noticias/store', [NoticiaController::class, 'store'])->name('admin.noticias.store');
+    Route::delete('admin/noticias/delete/{id}', [NoticiaController::class, 'destroy'])->name('admin.noticia.destroy');
+  
     //contatos
-    Route::get('/admin/contatos', [ContatoController::class, 'index'])->name('admin.contato.index');
+    Route::get('/admin/contatos', [ContatoController::class, 'index'])->name('admin.pages.contatos.index');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

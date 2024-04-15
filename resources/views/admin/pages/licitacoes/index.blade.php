@@ -24,7 +24,27 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
-                        <a href="" class="btn btn-primary mb-2">Cadastrar</a>
+                        @if ($errors->any())
+                            <div class="alert alert-danger text-center" style="margin: 10px;">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li style="text-align: center">{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                        @if (session('msg'))
+                            <div class="row text-center">
+                                <div class="col-md-12" \>
+                                    <div class="alert alert-success text-center" style="color: white; margin: 10px;">
+                                        {{ session('msg') }}
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+                    </div>
+                    <div class="col-md-12">
+                        <a href="{{ route('admin.licitacoes.create') }}" class="btn btn-primary mb-2">Cadastrar</a>
                         <div class="card">
                             <div class="card-header">
                                 <h3 class="card-title">Últimas adicionadas</h3>
@@ -41,17 +61,27 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1.</td>
-                                            <td>Update software</td>
-                                            <td>
-                                                dsadsa
-                                            </td>
-                                            <td>
-                                                {{-- <a href="">Editar</a> --}}
-                                                <a href="">Excluir</a>
-                                            </td>
-                                        </tr>
+                                        @foreach ($data as $item)
+                                            <tr>
+                                                <td>{{ $item->id }}</td>
+                                                <td>{{ $item->title }}</td>
+                                                <td>
+                                                    {{ $item->file }}
+                                                </td>
+                                                <td>
+                                                    <form onsubmit="return confirm('Deseja excluir?');"
+                                                        action="{{ route('admin.licitacoes.destroy', $item->id) }}"
+                                                        method="POST" style="float: right;">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" title="Deletar"
+                                                            class="btn btn-danger btn-sm">
+                                                            <ion-icon name="trash-outline"></ion-icon>
+                                                        </button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

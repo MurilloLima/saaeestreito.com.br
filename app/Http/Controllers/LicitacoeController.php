@@ -7,12 +7,18 @@ use Illuminate\Http\Request;
 
 class LicitacoeController extends Controller
 {
+    private $licitacoe;
+    public function __construct(Licitacoe $licitacoe)
+    {
+        $this->licitacoe = $licitacoe;
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('admin.pages.licitacoes.index');
+        $data = Licitacoe::latest()->get();
+        return view('admin.pages.licitacoes.index', compact('data'));
     }
 
     /**
@@ -20,7 +26,7 @@ class LicitacoeController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.pages.licitacoes.create');
     }
 
     /**
@@ -28,7 +34,19 @@ class LicitacoeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'file' => 'required',
+            'title' => 'required'
+        ]);
+
+        if ($request->hasFile('file') && $request->file('file')->isValid()) {
+            $imageName = time() . '.' . $request->file->extension();
+            $request->file->move(public_path('upload/arquivos'), $imageName);
+            $this->licitacoe->file = $imageName;
+            $this->licitacoe->title = $request->title;
+            $this->licitacoe->save();
+            return redirect()->back()->with('msg', 'Cadastrado com sucesso!');
+        }
     }
 
     /**
@@ -58,8 +76,9 @@ class LicitacoeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Licitacoe $licitacoe)
+    public function destroy($id)
     {
-        //
+        $this->licitacoe->destroy($id);
+        return redirect()->back()->with('msg', 'Deletada com sucesso!');
     }
 }
