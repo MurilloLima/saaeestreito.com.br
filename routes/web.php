@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home.pages.index');
 Route::get('sobre/', [HomeController::class, 'sobre'])->name('home.pages.sobre.index');
 Route::get('noticias/', [HomeController::class, 'noticias'])->name('home.pages.noticias.index');
+Route::get('noticias/{slug}', [NoticiaController::class, 'view'])->name('home.pages.noticias.view');
 Route::get('contatos/', [HomeController::class, 'contatos'])->name('home.pages.contatos.index');
 Route::post('contatos/store', [HomeController::class, 'store'])->name('home.pages.contato.store');
 Route::get('licitacao/', [HomeController::class, 'licitacao'])->name('home.pages.licitacao.index');

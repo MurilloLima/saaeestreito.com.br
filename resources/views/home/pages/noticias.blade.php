@@ -11,16 +11,17 @@
                 <h2 class="mt-2">Confira todos os trabalhos realizados!</h2>
             </div>
             <div class="row g-4">
-                <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.1s"
-                    style="visibility: visible; animation-delay: 0.1s; animation-name: zoomIn;">
-                    <div class="service-item d-flex flex-column justify-content-center text-center rounded">
-                        <img src="{{ asset('') }}" alt="">
-                        <h5 class="mb-3">SEO Optimization</h5>
-                        <p>Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet
-                            lorem.</p>
-                        <a class="btn px-3 mt-auto mx-auto" href="">Ler mais+</a>
+                @foreach ($data as $item)
+                    <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.1s"
+                        style="visibility: visible; animation-delay: 0.1s; animation-name: zoomIn;">
+                        <div class="service-item d-flex flex-column justify-content-center text-center rounded">
+                            <img src="{{ asset('upload/noticia/' . $item->image) }}" alt="">
+                            <h5 class="mb-3">{{ $item->title }}</h5>
+                            <p>{{ $item->desc }}</p>
+                            <a class="btn px-3 mt-auto mx-auto" href="">Ler mais+</a>
+                        </div>
                     </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

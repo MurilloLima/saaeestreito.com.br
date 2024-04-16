@@ -12,13 +12,15 @@
             <div class="row g-4">
                 <table class="table table-hover">
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>AVISO DE DISPENSA DE LICITAÇÃO N° 005/2024- SAAE</td>
-                            <td>
-                                <a href="{{ route('home.pages.download') }}">Baixar</a>
-                            </td>
-                        </tr>
+                        @foreach ($data as $item)
+                            <tr>
+                                {{-- <th scope="row">1</th> --}}
+                                <td>{{ $item->title }}</td>
+                                <td>
+                                    <a href="{{ asset('upload/arquivos/' . $item->id) }}">Baixar</a>
+                                </td>
+                            </tr>
+                        @endforeach
 
                     </tbody>
                 </table>

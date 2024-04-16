@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Home;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Contato;
 use App\Models\Contato as ModelsContato;
+use App\Models\Licitacoe;
 use App\Models\Noticia;
 use Illuminate\Http\Request;
 
@@ -45,7 +46,8 @@ class HomeController extends Controller
      */
     public function licitacao()
     {
-        return view('home.pages.licitacao');
+        $data = Licitacoe::latest()->get();
+        return view('home.pages.licitacao', compact('data'));
     }
 
     /**
@@ -84,7 +86,7 @@ class HomeController extends Controller
 
     public function noticias()
     {
-        $data = Noticia::latest();
+        $data = Noticia::latest()->get();
         return view('home.pages.noticia.index', compact('data'));
     }
 }

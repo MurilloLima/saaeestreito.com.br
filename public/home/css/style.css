@@ -148,7 +148,7 @@ h6,
         border-bottom: 1px solid rgba(256, 256, 256, .1);
         z-index: 999;
     }
-    
+
     .sticky-top.navbar-light {
         position: fixed;
         background: #FFFFFF;
@@ -522,4 +522,13 @@ h6,
     margin-right: 0;
     padding-right: 0;
     border-right: none;
+}
+
+.image-noticia {
+    width: 280px;
+}
+
+.image-noticia img {
+    width: 100%;
+    border-radius: 20px;
 }
