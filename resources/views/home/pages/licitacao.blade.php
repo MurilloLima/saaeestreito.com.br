@@ -17,7 +17,7 @@
                                 {{-- <th scope="row">1</th> --}}
                                 <td>{{ $item->title }}</td>
                                 <td>
-                                    <a href="{{ asset('upload/arquivos/' . $item->id) }}">Baixar</a>
+                                    <a href="{{ asset('upload/arquivos/' . $item->file) }}">Baixar</a>
                                 </td>
                             </tr>
                         @endforeach

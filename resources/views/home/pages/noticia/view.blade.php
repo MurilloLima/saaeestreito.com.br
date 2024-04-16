@@ -51,7 +51,7 @@
                         <a class="btn btn-outline-primary btn-square me-3" href="">
                             <i class="fab fa-facebook-f"></i></a>
                         <a class="btn btn-outline-primary btn-square me-3"
-                            href="https://api.whatsapp.com/send?text=www.saaeestreito.com.br/view/{{ $data->slug }}">
+                            href="https://api.whatsapp.com/send?text=www.saaeestreito.com.br/noticias/{{ $data->slug }}">
                             <i class="fab fa-whatsapp"></i></a>
                         <a class="btn btn-outline-primary btn-square me-3" href="">
                             <i class="fab fa-instagram"></i></a>
