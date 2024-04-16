@@ -58,9 +58,10 @@ class NoticiaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Noticia $noticia)
+    public function view($slug)
     {
-        //
+        $data = Noticia::where('slug', '=', $slug)->first();
+        return view('home.pages.noticia.view', compact('data'));
     }
 
     /**

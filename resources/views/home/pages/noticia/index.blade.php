@@ -21,7 +21,8 @@
                             </div>
                             <h5 class="mb-3">{{ $item->title }}</h5>
                             <p>{{ $item->desc }}</p>
-                            <a class="btn px-3 mt-auto mx-auto" href="{{ route('', $item->slug) }}">Ler mais+</a>
+                            <a class="btn px-3 mt-auto mx-auto"
+                                href="{{ route('home.pages.noticias.view', $item->slug) }}">Ler mais+</a>
                         </div>
                     </div>
                 @endforeach
