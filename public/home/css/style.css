@@ -139,6 +139,14 @@ h6,
     }
 }
 
+@media (max-width: 320px) {
+    .navbar-light {
+        width: 50%;
+        background-color: #1D1D27;
+        height: auto;
+    }
+}
+
 @media (min-width: 992px) {
     .navbar-light {
         position: absolute;
@@ -316,6 +324,11 @@ h6,
 .service-item:hover a.btn::before {
     width: 100%;
     background: var(--light);
+}
+
+.service-item img {
+    width: 100%;
+    height: auto;
 }
 
 
