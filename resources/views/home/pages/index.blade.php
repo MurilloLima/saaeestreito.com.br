@@ -13,7 +13,7 @@
                         class="btn btn-light py-sm-3 px-sm-5 rounded-pill me-3 animated slideInLeft">
                         Licitações e contratos
                     </a>
-                    <a href=""
+                    <a href="{{ route('home.pages.contatos.index') }}"
                         class="btn btn-outline-light py-sm-3 px-sm-5 rounded-pill animated slideInRight">Contatos</a>
                 </div>
                 <div class="col-lg-6 text-center text-lg-start">
