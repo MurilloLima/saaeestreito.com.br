@@ -17,11 +17,11 @@
             </div>
             <div class="col-md-6 col-lg-3">
                 <h5 class="text-white mb-4">Menu guia</h5>
-                <a class="btn btn-link" href="">Home</a>
-                <a class="btn btn-link" href="">Sobre</a>
-                <a class="btn btn-link" href="">Notícias</a>
-                <a class="btn btn-link" href="">Licitações e contratos</a>
-                <a class="btn btn-link" href="">Contatos</a>
+                <a class="btn btn-link" href="{{ route('home.pages.index') }}">Home</a>
+                <a class="btn btn-link" href="{{ route('home.pages.sobre.index') }}">Sobre</a>
+                <a class="btn btn-link" href="{{ route('home.pages.noticias.index') }}">Notícias</a>
+                <a class="btn btn-link" href="{{ route('home.pages.licitacao.index') }}">Licitações e contratos</a>
+                <a class="btn btn-link" href="{{ route('home.pages.contatos.index') }}">Contatos</a>
             </div>
             <div class="col-md-6 col-lg-3">
                 <h5 class="text-white mb-4">A Prefeitura</h5>
@@ -55,7 +55,7 @@
                 </div>
                 <div class="col-md-6 text-center text-md-end">
                     <div class="footer-menu">
-                        <a href="">Home</a>
+                        <a href="{{ route('home.pages.index') }}">Home</a>
                         <a href="">Cookies</a>
                         <a href="">Help</a>
                         <a href="">FQAs</a>

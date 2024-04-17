@@ -21,7 +21,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home.pages.index');
+        $noticias = Noticia::limit(3)->get();
+        return view('home.pages.index', compact('noticias'));
     }
 
     /**
